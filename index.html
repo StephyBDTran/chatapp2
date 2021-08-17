@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+  />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <title>Document Test by node</title>
+</head>
+<body>
+    <div class="container">
+        <br />
+        <div class="jumbotron">
+          <h1 class="display-4">Send Message</h1>
+          <br />
+          <input id="name" class="form-control" placeholder="Please Type Your Message" />
+          <br />
+          <button id="send" class="btn btn-primary">Send</button>
+        </div>
+        <div id="messages"></div>
+
+        <script>
+            $(() => {
+              console.log("Page loaded by Boi Dinh");
+              $("#send").click(() => {
+                addMessage({
+                  name: "Joseph Chan",
+                  message: "Hello World from Stephy Tran!",
+                });
+              });
+                getMessage();
+              });
+            function addMessage(message) {
+              $("#messages").append(
+                `<h4> ${message.name} </h4> <p> ${message.message}<p>`
+              );
+            }
+            function getMessages() {
+            $.get("http://localhost:3010/messages", (data) => {
+            console.log(data);
+            data.forEach(addMessage);
+            });
+            }
+
+          </script>
+
+      </div>
+
+
+</body>
+
+
+
+
+</html>
