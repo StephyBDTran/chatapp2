@@ -1,62 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="shortcut icon" href="#" /> -->
     <link
-    rel="stylesheet"
-    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-  />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    <title>Document Test by node</title>
-</head>
-<body>
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- <script src="/socket.io/socket.io.js"></script> -->
+    <link rel="shortcut icon" href="FACE05.ICO" />
+    <link rel="stylesheet" type="text/css" href="mystyle.css" />
+    <title>Document Test by nodemon</title>
+  </head>
+  <body>
     <div class="container">
+      <br />
+      <div class="jumbotron">
+        <h1 class="display-4">Message Center</h1>
         <br />
-        <div class="jumbotron">
-          <h1 class="display-4">Send Message</h1>
-          <br />
-          <input id="name" class="form-control" placeholder="Please Type Your Message" />
-          <br />
-          <button id="send" class="btn btn-primary">Send</button>
-        </div>
-        <div id="messages"></div>
+        <input id="name" class="form-control" placeholder="Name" />
+        <br />
+        <textarea
+          id="message"
+          class="form-control"
+          placeholder="Message"
+        ></textarea>
+        <br />
+        <button
+          id="send"
+          class="btn btn-primary"
+          onClick="document.location.reload(true)"
+        >
+          <i class="fas fa-envelope-square"></i>&nbsp;Send Message
+        </button>
+      </div>
+      <div id="messages"></div>
+      <script>
+        //var socket = io();
+        $(() => {
+          console.log("Page loaded by Boi Dinh T");
+          $("#send").click(() => {
+            var message = {
+              name: $("#name").val(),
+              message: $("#message").val(),
+            };
+            postMessage(message);
+          });
+          getMessages();
+        });
+        //socket.on("message", addMessage);
 
-        <script>
-            $(() => {
-              console.log("Page loaded by Boi Dinh");
-              $("#send").click(() => {
-                addMessage({
-                  name: "Joseph Chan",
-                  message: "Hello World from Stephy Tran!",
-                });
-              });
-                getMessage();
-              });
-            function addMessage(message) {
-              $("#messages").append(
-                `<h4> ${message.name} </h4> <p> ${message.message}<p>`
-              );
-            }
-            function getMessages() {
-            $.get("http://localhost:3010/messages", (data) => {
+        function addMessage(message) {
+          $("#messages").append(
+            `<h5><span class="sendname">${message.name}</span>:&nbsp  ${message.message}</h5><hr />`
+          );
+        }
+        function getMessages() {
+          $.get("http://localhost:3010/messages", (data) => {
+          //$.get("https://mysterious-scrubland-06964.herokuapp.com/messages", (data) => {
+            
             console.log(data);
             data.forEach(addMessage);
-            });
-            }
-
-          </script>
-
-      </div>
-
-
-</body>
-
-
-
-
+          });
+        }
+        function postMessage(message) {
+          $.post("http://localhost:3010/messages", message);
+          //$.post("https://mysterious-scrubland-06964.herokuapp.com/messages", message);
+          
+        }
+      </script>
+    </div>
+  </body>
 </html>
