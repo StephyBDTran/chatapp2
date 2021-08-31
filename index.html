@@ -65,16 +65,16 @@
           );
         }
         function getMessages() {
-          $.get("http://localhost:3010/messages", (data) => {
-          //$.get("https://mysterious-scrubland-06964.herokuapp.com/messages", (data) => {
+          //$.get("http://localhost:3010/messages", (data) => {
+          $.get("https://boiling-lake-19700.herokuapp.com/messages", (data) => {
             
             console.log(data);
             data.forEach(addMessage);
           });
         }
         function postMessage(message) {
-          $.post("http://localhost:3010/messages", message);
-          //$.post("https://mysterious-scrubland-06964.herokuapp.com/messages", message);
+          //$.post("http://localhost:3010/messages", message);
+          $.post("https://boiling-lake-19700.herokuapp.com/messages", message);
           
         }
       </script>
