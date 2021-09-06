@@ -65,15 +65,15 @@
           );
         }
         function getMessages() {
-          //$.get("http://localhost:3010/messages", (data) => {
-          $.get("https://infinite-thicket-17391.herokuapp.com/messages", (data) => {
+          $.get("http://localhost:3010/messages", (data) => {
+          //$.get("https://infinite-mountain-31979.herokuapp.com/messages", (data) => {
             console.log(data);
             data.forEach(addMessage);
           });
         }
         function postMessage(message) {
-          //$.post("http://localhost:3010/messages", message);
-          $.post("https://infinite-thicket-17391.herokuapp.com/messages", message);        
+          $.post("http://localhost:3010/messages", message);
+          //$.post("https://infinite-mountain-31979.herokuapp.com/messages", message);        
         }
       </script>
     </div>
