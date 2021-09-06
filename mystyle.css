@@ -1,14 +1,14 @@
 hr {
-  border: 1px dotted blue;
+  border: 1px dotted rgb(38, 38, 236);
 }
 #name,
 #message {
-  background-color: lightyellow;
+  background-color: rgb(220, 149, 238);
 }
 .sendname {
-  color: blue;
+  color: rgba(231, 44, 100, 0.884);
 }
 .display-4 {
   font-weight: 500;
-  color: blue;
+  color: rgb(148, 13, 20);
 }

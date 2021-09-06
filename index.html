@@ -12,10 +12,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script
+    <!--<script
       src="https://kit.fontawesome.com/a076d05399.js"
       crossorigin="anonymous"
-    ></script>
+    ></script> -->
     <!-- <script src="/socket.io/socket.io.js"></script> -->
     <link rel="shortcut icon" href="FACE05.ICO" />
     <link rel="stylesheet" type="text/css" href="mystyle.css" />
@@ -37,7 +37,7 @@
         <br />
         <button
           id="send"
-          class="btn btn-primary"
+          class="btn btn-danger"
           onClick="document.location.reload(true)"
         >
           <i class="fas fa-envelope-square"></i>&nbsp;Send Message
@@ -66,16 +66,14 @@
         }
         function getMessages() {
           //$.get("http://localhost:3010/messages", (data) => {
-          $.get("https://boiling-lake-19700.herokuapp.com/messages", (data) => {
-            
+          $.get("https://infinite-thicket-17391.herokuapp.com/messages", (data) => {
             console.log(data);
             data.forEach(addMessage);
           });
         }
         function postMessage(message) {
           //$.post("http://localhost:3010/messages", message);
-          $.post("https://boiling-lake-19700.herokuapp.com/messages", message);
-          
+          $.post("https://infinite-thicket-17391.herokuapp.com/messages", message);        
         }
       </script>
     </div>

@@ -13,8 +13,8 @@ app.use(express.static(__dirname))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:false}))
 
-//mongodb+srv://Admin:<password>@chatapp.vrbrl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
-var dbUrl = 'mongodb+srv://Admin:Admin290492@chatapp.vrbrl.mongodb.net/Chatappdb?retryWrites=true&w=majority'
+//mongodb+srv://Admin:<password>@chatapp.m0dcl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+var dbUrl = 'mongodb+srv://Admin:Admin@chatapp.m0dcl.mongodb.net/chatapp?retryWrites=true&w=majority'
 
 var Message = mongoose.model('Message', {
     name : String, message: String
@@ -55,4 +55,3 @@ io.on("connection", (socket) => {
 var server = app.listen(port, () => {
     console.log('Server is listening on port', port)
 })
-
