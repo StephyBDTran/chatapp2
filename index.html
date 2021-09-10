@@ -65,15 +65,15 @@
           );
         }
         function getMessages() {
-          $.get("http://localhost:3010/messages", (data) => {
-          //$.get("https://chatappsecond.herokuapp.com/messages", (data) => {
+          //$.get("http://localhost:3010/messages", (data) => {
+          $.get("https://chatappsecond.herokuapp.com/messages", (data) => {
             console.log(data);
             data.forEach(addMessage);
           });
         }
         function postMessage(message) {
-          $.post("http://localhost:3010/messages", messages);
-          //$.post("https://chatappsecond.herokuapp.com/messages", message);        
+          //$.post("http://localhost:3010/messages", messages);
+          $.post("https://chatappsecond.herokuapp.com/messages", message);        
         }
       </script>
     </div>
