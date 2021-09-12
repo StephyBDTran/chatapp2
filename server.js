@@ -14,7 +14,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:false}))
 
 //mongodb+srv://Admin:<password>@chatappdb.m0dcl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
-var dbUrl = 'mongodb+srv://Admin:AdminBoiDinhTRAN@chatappdb.m0dcl.mongodb.net/chatappdb?retryWrites=true&w=majority'
+var dbUrl ='mongodb+srv://Admin:AdminBoiDinhTRAN@chatappdb.m0dcl.mongodb.net/chatappdb?retryWrites=true&w=majority'
 
 var Message = mongoose.model('Message', {
     name : String, message: String
@@ -30,7 +30,7 @@ app.get('/messages', (req, res) => {
     })
     
 })
-app.post('messages', (req, res) => {
+app.post('/messages', (req, res) => {
     var message = new Message(req.body)
     message.save((err) => {
         if(err)
